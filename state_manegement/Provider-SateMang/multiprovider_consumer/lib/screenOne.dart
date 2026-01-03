@@ -1,0 +1,58 @@
+import 'package:flutter/material.dart';
+import 'package:multiprovider_consumer/Company.dart';
+import 'package:multiprovider_consumer/employee.dart';
+import 'package:provider/provider.dart';
+
+class Screenone extends StatelessWidget {
+  const Screenone({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Screen One",style: TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.bold
+        ),),
+        centerTitle: true,
+        backgroundColor: Colors.tealAccent,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+             Text(
+              "cmp Name:${Provider.of<Company>(context).cmpName}",
+              style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),
+            ),
+
+            SizedBox(height: 20,),
+            Text(
+              "Emp Cnt:${Provider.of<Company>(context).empCount}",
+              style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),
+            ),
+             SizedBox(height: 30,),
+
+              Text(
+              "Employee Name:${Provider.of<Employee>(context).empName}",
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold
+              ),
+             ),
+
+             SizedBox(height: 20,),
+
+             Text(
+              "Employee Id:${Provider.of<Employee>(context).empId}",
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold
+              ),
+             ),
+          ],
+        ),
+      ),
+    );
+  }
+}
